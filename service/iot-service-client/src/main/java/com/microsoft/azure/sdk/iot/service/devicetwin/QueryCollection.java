@@ -235,7 +235,7 @@ public class QueryCollection
      * @throws IOException If an IOException occurs when calling the Service API, or if the results of that call are unexpected
      * @throws IotHubException If an IotHubException occurs when calling the Service API
      */
-    protected QueryCollectionResponse<String> next() throws IOException, IotHubException
+    public QueryCollectionResponse<String> next() throws IOException, IotHubException
     {
         //Codes_SRS_QUERYCOLLECTION_34_032: [If this object has a next set to return, this function shall return it.]
         //Codes_SRS_QUERYCOLLECTION_34_033: [If this object does not have a next set to return, this function shall return null.]
@@ -255,6 +255,12 @@ public class QueryCollection
      */
     protected QueryCollectionResponse<String> next(QueryOptions options) throws IOException, IotHubException
     {
+        //TODO
+        if (true)
+        {
+            //if continuation token present, assume there is a next
+        }
+
         if (this.hasNext())
         {
             //Codes_SRS_QUERYCOLLECTION_34_034: [If this object has a next set to return using the provided query options, this function shall return it.]
@@ -281,7 +287,6 @@ public class QueryCollection
     {
         if (iotHubConnectionString == null || url == null || method == null)
         {
-            //Codes_SRS_QUERY_25_019: [This method shall throw IllegalArgumentException if any of the parameters are null or empty.]
             throw new IllegalArgumentException("Input parameters cannot be null");
         }
     }
